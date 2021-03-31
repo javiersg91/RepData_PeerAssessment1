@@ -1,4 +1,5 @@
 library(dplyr)
+library(tidyselect)
 
 ## 1. Code for reading in the dataset and/or processing the data
 unzip("./activity.zip")
@@ -66,7 +67,16 @@ print(paste("While the mean remained the same the median varied by",
             "when imputting missing values"))
 
 ## 8. Panel plot comparing the average number of steps taken per 5-minute interval across weekdays and weekends
-
-
+daynames <- weekdays(ndata$date)
+daynames <- gsub("lunes", "Weekday", daynames)
+daynames <- gsub("martes", "Weekday", daynames)
+daynames <- gsub("miércoles", "Weekday", daynames)
+daynames <- gsub("jueves", "Weekday", daynames)
+daynames <- gsub("viernes", "Weekday", daynames)
+daynames <- gsub("sábado", "Weekend", daynames)
+daynames <- gsub("domingo", "Weekend", daynames)
+dias <- cbind(daynames, ndata)
+resumen <- aggregate(steps ~ interval + daynames, dias, FUN = mean)
+with(resumen, (plot(interval, steps, type = "l")))
 
 ## 9. All of the R code needed to reproduce the results (numbers, plots, etc.) in the report
