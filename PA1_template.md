@@ -33,7 +33,7 @@ with(pdata, (plot(date,x,
                   col = "blue")))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 ```r
 promedio <- mean(pdata$x, na.rm = TRUE)
@@ -56,7 +56,7 @@ with(qdata, plot(interval, x,
                  ylab = "Mean steps"))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 ```r
 maxinterval <- qdata[which.max(qdata$x),1]
@@ -95,7 +95,7 @@ with(npdata, (plot(date,x,
                   col = "red")))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
 
 ```r
 npromedio <- mean(npdata$x)
@@ -139,4 +139,4 @@ plot <- xyplot(steps ~ interval | daynames, data = resumen,
 print(plot)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
